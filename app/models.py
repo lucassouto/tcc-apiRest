@@ -13,3 +13,4 @@ class Book(models.Model):
 
     class Meta:
         ordering = ('release_date',)
+        
