@@ -39,8 +39,7 @@ class Command(BaseCommand):
                 else:
                     create_one_register_csv('register.csv', data, column_names)
 
-            except:
-                if Book.DoesNotExist:
-                    self.stdout.write('Register {} NotExist'.format(id_register))
-                else:
-                    self.stdout.write('Error Creating File')
+                self.stdout.write('Saved')
+
+            except Book.DoesNotExist:
+                self.stdout.write('Register {} NotExist'.format(id_register))

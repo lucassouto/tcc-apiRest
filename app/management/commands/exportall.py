@@ -18,19 +18,24 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
-        self.book = Book.objects.all()
+        try:
+            self.book = Book.objects.all()
 
-        serializer = BookSerializer(self.book, many=True)
+            serializer = BookSerializer(self.book, many=True)
 
-        json = JSONRenderer().render(serializer.data)
-        stream = BytesIO(json)
-        data = JSONParser().parse(stream)
+            json = JSONRenderer().render(serializer.data)
+            stream = BytesIO(json)
+            data = JSONParser().parse(stream)
 
-        columns_names = data[0].keys()
+            columns_names = data[0].keys()
 
-        if os.path.isfile('register.csv'):
-            insert_many_register_csv('register.csv', data, columns_names)
+            if os.path.isfile('register.csv'):
+                insert_many_register_csv('register.csv', data, columns_names)
 
-        else:
-            create_many_register_csv('register.csv', data, columns_names)
+            else:
+                create_many_register_csv('register.csv', data, columns_names)
 
+            self.stdout.write('Saved')
+
+        except Book.DoesNotExist:
+            self.stdout.write('Register {} NotExist'.format(id_register))
