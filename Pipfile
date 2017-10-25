@@ -9,6 +9,10 @@ url = "https://pypi.python.org/simple"
 
 django = "*"
 djangorestframework = "*"
+"psycopg2" = "*"
+python-decouple = "*"
+dj-database-url = "*"
+unipath = "*"
 
 
 [requires]
