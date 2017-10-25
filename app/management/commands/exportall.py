@@ -38,4 +38,4 @@ class Command(BaseCommand):
             self.stdout.write('Saved')
 
         except Book.DoesNotExist:
-            self.stdout.write('Register {} NotExist'.format(id_register))
+            self.stdout.write('Records NotExist')

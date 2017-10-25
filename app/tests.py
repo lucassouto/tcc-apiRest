@@ -14,5 +14,5 @@ class CommandExportTest(TestCase):
     def test_command_exportall(self):
         Book.objects.create()
         out = StringIO()
-        call_command('export', 1, stdout=out)
+        call_command('exportall', stdout=out)
         self.assertIn('Saved', out.getvalue())
