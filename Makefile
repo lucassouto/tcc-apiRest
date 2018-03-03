@@ -1,5 +1,10 @@
 APP = app
 
+install:
+	pip install pipenv
+	pipenv install
+	pipenv shell
+
 runserver:
 	python manage.py runserver
 
