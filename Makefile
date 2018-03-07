@@ -3,7 +3,7 @@ APP = app
 install:
 	pip install pipenv
 	pipenv install
-	pipenv shell
+	pipenv install --dev --three
 
 runserver:
 	python manage.py runserver
