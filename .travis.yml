@@ -7,4 +7,9 @@ python:
 install:
   - make install
 
-services: postgresql
+env:
+  - SECRET_KEY="lm4%)pg7%&i&a&vo!$z0e+qyn(ab#h=lv*j5+yez2gj3(!45!x" DEBUG=True DATABASE_URL="postgres://localhost/test"
+
+before_script:
+  - psql -c 'create database test;' -U postgres  
+  - pipenv shell

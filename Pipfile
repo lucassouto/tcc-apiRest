@@ -14,12 +14,6 @@ python-decouple = "*"
 dj-database-url = "*"
 unipath = "*"
 
-
-[requires]
-
-python_version = "3.5"
-
-
 [dev-packages]
 
 httpie = "*"
